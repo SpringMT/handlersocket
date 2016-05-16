@@ -2,7 +2,7 @@ require 'mkmf'
 
 dir_config 'handlersocket'
 
-$CPPFLAGS = '-x c++ ' << $CPPFLAGS # as C++
+$CPPFLAGS = '-x c++ -lstdc++ ' << $CPPFLAGS # as C++
 
 found = true
 unless have_header 'hstcpcli.hpp'
@@ -40,7 +40,7 @@ EOF
   exit 1
 end
 
-$CPPFLAGS = $CPPFLAGS.sub '-x c++ ', ''
+$CPPFLAGS = $CPPFLAGS.sub '-x c++ -lstdc++ ', ''
 
 have_library 'hsclient'
 have_library 'stdc++'
